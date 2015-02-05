@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap
+//= require validate
+//= require jquery.validate
+//= require jquery.validate.min
 //= require_tree .
+//= require turbolinks

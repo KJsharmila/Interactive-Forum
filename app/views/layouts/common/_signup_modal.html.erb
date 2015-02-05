@@ -1,0 +1,66 @@
+
+<div class="modal-dialog">
+
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">Sign Up</h4>
+    </div>
+    <%= form_for :user,url: users_path,:id=>"user_id", method: "post",html:{:class =>"form-horizontal"} do |f| %>
+
+    <div class="modal-body">
+      <!-- <form class="form-horizontal"> -->
+
+      <div class="form-group">
+        <!-- <label for="Name" class="col-sm-3 control-label">Name</label> -->
+        <%= label_tag "Name",nil,class: "col-sm-3 control-label" %>
+        <div class="col-sm-7">
+          <!-- <input type="text" class="form-control" id="Name" placeholder="Name"> -->
+          <%= f.text_field :name,:class=>"form-control",placeholder: "Name" %>
+
+        </div>
+
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="form-group">
+                                                <!-- <label for="inputEmail" class="col-sm-3 control-label">Email id</label>
+                                                <div class="col-sm-7"> -->
+                                                  <%= label_tag "Email",nil,class: "col-sm-3 control-label" %>
+                                                  <div class="col-sm-7">
+                                                    <!-- <input type="email" class="form-control" id="inputEmail" placeholder="Email Address"> -->
+                                                    <%= f.text_field :email,:class=>"form-control",placeholder: "Email Address" %>
+
+                                                  </div>
+                                                  <div class="col-sm-2"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                  <!-- <label for="inputPassword" class="col-sm-3 control-label">Password</label> -->
+                                                  <%= label_tag "Password",nil,class: "col-sm-3 control-label" %>
+
+                                                  <div class="col-sm-7">
+                                                    <!-- <input type="password" class="form-control" id="inputPassword" placeholder="Password"> -->
+                                                    <%= f.password_field :password,:class=>"form-control",placeholder: "Password" %>
+                                                  </div>
+                                                  <div class="col-sm-2"></div>
+                                                </div>
+                                                <div class="form-group">
+                                                  <!-- <label for="inputPassword" class="col-sm-3 control-label">Confirm</label> -->
+                                                  <%= label_tag "Confirm",nil,class: "col-sm-3 control-label" %>
+
+                                                  <div class="col-sm-7">
+                                                    <!-- <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password"> -->
+                                                    <%= f.password_field :password,:class=>"form-control",placeholder: "Confirm Password" %>
+                                                  </div>
+                                                  <div class="col-sm-2"></div>
+                                                </div>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <!-- <button type="button" class="btn btn-primary ok-btn-padding">OK</button> -->
+                                                <%= f.submit "OK",:id=>"signup",:class=>"btn btn-primary ok-btn-padding" %>
+                                                <button type="button" class="btn btn-default ok-btn-padding" data-dismiss="modal">Cancel</button>
+                                              </div>
+                                              <%end%>
+                                            </div>
+                                          </div>
+                                        </div>

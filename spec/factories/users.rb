@@ -1,9 +1,10 @@
 FactoryGirl.define do
   factory :user do
     name "MyString"
-email "MyString"
-id "MyString"
-password_digest "MyString"
+    email "shar@gmail.com"
+    password ConfigCenter::Defaults::PASSWORD
+
+
   end
 
 end

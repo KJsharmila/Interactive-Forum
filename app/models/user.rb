@@ -1,17 +1,18 @@
 class User < ActiveRecord::Base
-  
+
    has_secure_password
 
  validates :name,
- presence: true, 
+ presence: true,
  :format => { with: /\w+/ },
  :format => { with: /[A-Z]/}
 
  validates :email,
       presence: true,
-      uniqueness: {message: "Email already exists"}
-  
+      uniqueness: true,
+:format => {:with => ConfigCenter::GeneralValidations::EMAIL_FORMAT_REG_EXP}
+
   validates :password,
- :presence => true, 
+ :presence => true,
  :length => {:minimum => 4}
 end

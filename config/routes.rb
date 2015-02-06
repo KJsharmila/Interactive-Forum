@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'users#home'
+  post "sign_up" => "users#create", :as => "sign_up"
+  get "users/check_email" =>"users#check_email"
   resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -12,28 +12,29 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
+        <% if current_user%>
         <li>
-          <!-- Sign up Button trigger modal -->
-          <%#= link_to 'Sign up', new_user_path, :class => "btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal', remote: true %>
-          <%= button_to "Sign up", new_user_path ,:method=> :get, remote: true, :class=>"btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%>
+          <h3 class="sharmila"><%= current_user.name %></h3>
         </li>
         <li>
-          <!-- Log in Button trigger modal -->
-          <button type="button" class="btn btn-success signup-login-btn" data-toggle="modal" data-target="#logIn">
-            Log in
-          </button>
-        </li>
-      </ul>
-    </div><!--/.navbar-collapse -->
-  </div>
-</nav>
+          <%= button_to "Sign out", session_path(:id => current_user.id),:method=> :delete, :class=>"btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%></li>
+          <% else %>
+          
+          <li>
+            <%= button_to "Sign up", new_user_path ,:method=> :get, remote: true, :class=>"btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%>
+          </li>
+          <li>
+
+            <%= button_to "sign in", new_session_path ,:method=> :get, remote: true, :class=>"btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 
-<!--Content Area-->
-<div class="container landing-content-area">
-  <h1 class="landing-heding">Interactive-Forum</h1>
-  <h5> PROJECT BY SHARMILA</h5>
-</div>
+
 
 
 

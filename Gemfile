@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'pg', '~> 0.18.1'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
- gem 'therubyracer',  platforms: :ruby
+# gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -24,22 +24,23 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'rails_12factor', group: :production
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 group :development, :test do
-  gem "factory_girl_rails"
-  gem 'pry'
-  gem 'pry-doc'
-  gem 'pry-rails'
+	gem "factory_girl_rails"
+	gem 'pry'
+	gem 'pry-doc'
+	gem 'pry-rails'
   gem 'rspec-rails', '~> 3.0' # Needed for rake stats to calculate test coverage
   gem "quiet_assets"
   gem "shoulda"
 end
 # Use ActiveModel has_secure_password
- gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
- gem 'jquery-validation-rails'
+gem 'jquery-validation-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'

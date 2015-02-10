@@ -20,10 +20,14 @@
         @user.save
         @success = true
         session[:user_id] = @user.id
+        redirect_to forums_path
+        flash[:success] = "You have been logged in successfully!"
       else
         @success = false
+        redirect_to root_path
+        flash[:error] = "Failed to sign up!"
       end
-      redirect_to forums_path
+      
     end
 
     private

@@ -52,13 +52,6 @@ RSpec.describe User, :type => :model do
   end
 
   it "should validate password lenght" do
-
-    user.password = "sgd"*256
-    user.valid?
-
-    expect(user.errors[:password].size).to be 0
-    expect(user).to be_valid
-
     user.password = "wg"
 
     user.valid?

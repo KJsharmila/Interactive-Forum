@@ -12,10 +12,13 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       respond_to do |format|
         format.html{ redirect_to forums_path }
+         flash[:success] = "You have successfully logged"
+        
       end
     else
-      flash.now.alert = "Invalid email or password"
+      
       redirect_to root_path
+      flash[:error] = "You must be logged in to access this section"
     end
   end
 

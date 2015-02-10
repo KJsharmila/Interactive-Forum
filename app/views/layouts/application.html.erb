@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Interactive</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Interactive</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
- <body class="landing-page-bg">
-	<%#= render partial: 'layouts/common/header'  %>
+<body class="landing-page-bg">
+	<%= render partial: 'layouts/common/header'  %>
 
-<%= yield %>
-  <div id="popup_modal" class="modal fade"></div>
-
-<!-- <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="div_popup_modal" class="modal fade" style="display: none;"> -->
-  </div>
+	<%= yield %>
+	<div id="popup_modal" class="modal fade"></div>
+</div>
 </body>
 </html>

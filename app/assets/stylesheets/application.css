@@ -18,3 +18,8 @@
  *= require_bootstrap
  *= require_override-bootstrap
  */
+ .sharmila
+{
+	font-size: 20px;
+	color: yellow;
+}

@@ -1,19 +1,19 @@
 require 'rails_helper'
 RSpec.describe User, :type => :model do
-let(:user) {FactoryGirl.create(:user)}
-context "Factory settings for users" do
+  let(:user) {FactoryGirl.create(:user)}
+  context "Factory settings for users" do
 
     it "should validate the user factories" do
       expect(FactoryGirl.build(:user).valid?).to be true
     end
   end
 
- describe User do
+  describe User do
     it { should validate_presence_of :name }
-      it { should validate_presence_of :email}
-      it { should validate_uniqueness_of :email}
+    it { should validate_presence_of :email}
+    it { should validate_uniqueness_of :email}
     it { should validate_presence_of :password }
-end
+  end
 
   it "should validate first character to be uppercase" do
 

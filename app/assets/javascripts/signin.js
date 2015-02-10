@@ -1,40 +1,16 @@
-function UserValidator() {
-
- jQuery.validator.addMethod("startsWithCapital", function(value, element) {
-  return /^[A-Z][a-zA-Z _0-9]+$/.test( value );
-});
-
- jQuery.validator.addMethod("pswd_match",function (value,element){
-  return $("#signup_password").val() == $('#password_confirmation').val();
-});
-
- jQuery.validator.addMethod("alpha", function(value, element) {
-  return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
-});
-
- $('#register').validate({
+function SessionValidator() {
+ $('#sign_in').validate({
   debug: true,
   rules: {
-  "user[name]": {
-    required:true,
-    minlength: 2,
-    
-    startsWithCapital: true
-  },
-  "user[email]": {
+  "email": {
      email: true,
-     required: true,
-     remote:"/users/check_email"
+     required: true
+     
   },
-  "user[password]" : {
+  "password" : {
     required: true,
     minlength: 6,
     maxlength: 10
-  },
-  "user[password_confirmation]": {
-    required:true,
-    equalTo: "#user_password",
-    pswd_match: true
   }
 },
 
@@ -43,24 +19,15 @@ errorElement: "span",
 errorClass: "help-block",
 
 messages: {
- "user[name]":{
-  required: "This field is required",
-  startsWithCapital: "Must begin with Uppercase!"
-},
-"user[email]": {
+ "email": {
   required: "This field is required",
   email: "Please enter a valid E-Mail address!",
   remote: "Email has been already taken"
 },
-"user[password]": {
+"password": {
   required:"This field is required",
   minlength:"Enter minimum 6 characters!",
   maxlength: "Exceeded length!"
-},
-"user[password_confirmation]": {
-  required: "This field is required",
-  equalTo:"Passwords do not match!",
-  pswd_match: "Bingo! It's a match"
 }
 },
 
@@ -101,9 +68,8 @@ invalidHandler: function(event, validator) {
 
       },
       submitHandler: function(form) {
-      
        form.submit();
-      }
-     });
+     }
+   });
 
 }

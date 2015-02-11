@@ -16,6 +16,8 @@
 
     def create
       @user = User.new(user_params)
+       user_name = user_params[:name].titleize
+       @user.name = user_name
       if @user.valid? && @user.errors.blank?
         @user.save
         @success = true

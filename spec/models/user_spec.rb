@@ -16,18 +16,6 @@ RSpec.describe User, :type => :model do
   end
 
   it "should validate first character to be uppercase" do
-
-    user.name = "sg"*256
-    user.valid?
-    expect(user.errors[:name].size).to be 1
-    expect(user).to be_invalid
-
-    user.name = "s"
-
-    user.valid?
-    expect(user.errors[:name].size).to be 1
-    expect(user).to be_invalid
-
     user.name = "ZysdfKjdh"
     user.valid?
     expect(user.errors[:name].size).to be 0

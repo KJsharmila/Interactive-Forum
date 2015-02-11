@@ -1,9 +1,5 @@
 function UserValidator() {
 
- jQuery.validator.addMethod("startsWithCapital", function(value, element) {
-  return /^[A-Z][a-zA-Z _0-9]+$/.test( value );
-});
-
  jQuery.validator.addMethod("pswd_match",function (value,element){
   return $("#signup_password").val() == $('#password_confirmation').val();
 });

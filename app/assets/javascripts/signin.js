@@ -4,8 +4,8 @@ function SessionValidator() {
   rules: {
   "email": {
      email: true,
-     required: true
-     
+     required: true,
+     remote:"/sessions/check_email"
   },
   "password" : {
     required: true,
@@ -22,7 +22,7 @@ messages: {
  "email": {
   required: "This field is required",
   email: "Please enter a valid E-Mail address!",
-  remote: "Email has been already taken"
+  remote:"User doesn't exists"
 },
 "password": {
   required:"This field is required",

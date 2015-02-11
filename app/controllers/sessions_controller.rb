@@ -1,10 +1,17 @@
 class SessionsController < ApplicationController
-
   def new
     respond_to do |format|
       format.js{}
     end
   end
+def check_email
+      @user = User.find_by_email(params[:email])
+     
+      respond_to do |format|
+        format.json { render :json => @user.present? }
+        
+      end
+    end
 
   def create
     user = User.find_by_email(params[:email])

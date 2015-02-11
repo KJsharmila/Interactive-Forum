@@ -18,8 +18,7 @@ function UserValidator() {
   "user[name]": {
     required:true,
     minlength: 2,
-    
-    startsWithCapital: true
+    alpha:true
   },
   "user[email]": {
      email: true,
@@ -45,7 +44,7 @@ errorClass: "help-block",
 messages: {
  "user[name]":{
   required: "This field is required",
-  startsWithCapital: "Must begin with Uppercase!"
+  alpha:"Should contain only alphabets"
 },
 "user[email]": {
   required: "This field is required",

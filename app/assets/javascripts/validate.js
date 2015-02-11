@@ -1,9 +1,5 @@
 function UserValidator() {
 
- jQuery.validator.addMethod("startsWithCapital", function(value, element) {
-  return /^[A-Z][a-zA-Z]+$/.test( value );
-});
-
  jQuery.validator.addMethod("pswd_match",function (value,element){
   return $("#signup_password").val() == $('#password_confirmation').val();
 });
@@ -18,8 +14,7 @@ function UserValidator() {
   "user[name]": {
     required:true,
     minlength: 2,
-    alpha:true,
-    
+    alpha:true
   },
   "user[email]": {
      email: true,
@@ -45,7 +40,6 @@ errorClass: "help-block",
 messages: {
  "user[name]":{
   required: "This field is required",
- 
   alpha:"Should contain only alphabets"
 },
 "user[email]": {

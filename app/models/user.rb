@@ -2,9 +2,8 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	validates :name,
-	presence: true,
-	:format => { with: /\w+/ },
-	:format => { with: /[A-Z]/}
+	presence: true
+	
 
 	validates :email,
 	presence: true,
@@ -13,5 +12,6 @@ class User < ActiveRecord::Base
 
 	validates :password,
 	:presence => true,
-	:format => {:with =>ConfigCenter::GeneralValidations::PASSWORD_FORMAT_REG_EXP}
+	:length =>{:minimum => 6}
+	
 end

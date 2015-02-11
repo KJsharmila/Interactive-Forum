@@ -1,7 +1,7 @@
 function UserValidator() {
 
  jQuery.validator.addMethod("startsWithCapital", function(value, element) {
-  return /^[A-Z][a-zA-Z _0-9]+$/.test( value );
+  return /^[A-Z][a-zA-Z]+$/.test( value );
 });
 
  jQuery.validator.addMethod("pswd_match",function (value,element){
@@ -18,8 +18,8 @@ function UserValidator() {
   "user[name]": {
     required:true,
     minlength: 2,
+    alpha:true,
     
-    startsWithCapital: true
   },
   "user[email]": {
      email: true,
@@ -45,7 +45,8 @@ errorClass: "help-block",
 messages: {
  "user[name]":{
   required: "This field is required",
-  startsWithCapital: "Must begin with Uppercase!"
+ 
+  alpha:"Should contain only alphabets"
 },
 "user[email]": {
   required: "This field is required",

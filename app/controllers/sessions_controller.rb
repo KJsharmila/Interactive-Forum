@@ -13,19 +13,21 @@ def check_email
       end
     end
 
-  def create
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
+   def create
+  if params[:provider] == "google_oauth2"
+    auth = request.env["omniauth.auth"]
+    user = User.where(:provider => auth['provider'],
+    :uid => auth['uid'].to_s).first || User.create_with_omniauth(auth)
+  else
+    user = User.authenticate(params[:email], params[:password])
+  end
+    if user
       session[:user_id] = user.id
-      respond_to do |format|
-        format.html{ redirect_to forums_path }
-         flash[:success] = "You have successfully logged"
-        
-      end
+      flash[:success] = "Signed in Successfully"
+      redirect_to forums_path, :success => "Logged in!"
     else
-      
+      flash[:alert] = "Invalid email or password"
       redirect_to root_path
-      flash[:error] = "You must be logged in to access this section"
     end
   end
 

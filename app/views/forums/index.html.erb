@@ -1,4 +1,3 @@
-
         <!--Content Area-->
         <div class="container cotainer-margin">
             <div class="row">
@@ -55,5 +54,10 @@
             </div>
         </div>
 
-
+<script>
+  history.pushState({ page: 1 }, "title 1", "#nbb");
+  window.onhashchange = function (event) {
+    window.location.hash = "nbb";
+  };
+</script>
        

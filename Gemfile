@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'pg', '~> 0.18.1'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+ gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -41,6 +41,9 @@ end
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'jquery-validation-rails'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+
 
 # Use unicorn as the app server
 # gem 'unicorn'

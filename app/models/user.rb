@@ -1,17 +1,40 @@
 class User < ActiveRecord::Base
-	has_secure_password
 
-	validates :name,
-	presence: true
-	
+ has_secure_password :validations => false
 
-	validates :email,
-	presence: true,
-	uniqueness: true,
-	:format => {:with => ConfigCenter::GeneralValidations::EMAIL_FORMAT_REG_EXP}
+ validates :name, presence: true,
+           :unless => proc{|u| u.provider.present?}
 
-	validates :password,
-	:presence => true,
-	:length =>{:minimum => 6}
-	
+
+ validates :email, presence: true,
+            uniqueness: {message: "Email already exists"},
+            :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i },
+            :unless => proc{|u| u.provider.present?}
+
+
+ validates :password, :presence => true,
+           :length => {:minimum => 6},
+           :unless => proc{|u| u.provider.present?}
+
+
+  def self.authenticate(email, password)
+    user = find_by_email(email)
+    if user && user.password_digest == BCrypt::Engine.hash_secret(password, user.password_digest)
+      user
+    else
+      nil
+    end
+  end
+
+ def self.create_with_omniauth(auth)
+   create! do |user|
+    user.provider = auth['provider']
+    user.uid = auth['uid']
+    user.oauth_token = auth['oauth_token']
+    if auth['info']
+      user.name = auth['info']['name'] || ""
+    end
+  end
+end
+
 end

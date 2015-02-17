@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   reconnect: false
-  database: interactive_development
+  database: forum_development
   pool: 5
   username: postgres
   password: sharmila
@@ -13,7 +13,7 @@ test:
   adapter: postgresql
   encoding: unicode
   reconnect: false
-  database: interactive_test
+  database: forum_test
   pool: 5
   username: postgres
   password: sharmila

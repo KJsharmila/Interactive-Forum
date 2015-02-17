@@ -6,11 +6,15 @@ class User < ActiveRecord::Base
            :unless => proc{|u| u.provider.present?}
 
 
- validates :email, presence: true,
-            uniqueness: {message: "Email already exists"},
-            :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i },
-            :unless => proc{|u| u.provider.present?}
-
+ # validates :email, presence: true,
+ #            uniqueness: {message: "Email already exists"},
+ #            :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i },
+ #            :unless => proc{|u| u.provider.present?}
+validates :email,
+    :presence => true,
+    :uniqueness => {:case_sensitive => false},
+    :format => {:with => ConfigCenter::GeneralValidations::EMAIL_FORMAT_REG_EXP},
+    :unless => proc{|u| u.provider.present?}
 
  validates :password, :presence => true,
            :length => {:minimum => 6},

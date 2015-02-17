@@ -1,4 +1,6 @@
   class UsersController < ApplicationController
+    skip_before_filter :require_login
+    
     def check_email
       @user = User.find_by_email(params[:user][:email])
 
@@ -16,8 +18,8 @@
 
     def create
       @user = User.new(user_params)
-       user_name = user_params[:name].titleize
-       @user.name = user_name
+      user_name = user_params[:name].titleize
+      @user.name = user_name
       if @user.valid? && @user.errors.blank?
         @user.save
         @success = true

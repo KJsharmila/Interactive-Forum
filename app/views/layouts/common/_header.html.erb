@@ -11,11 +11,17 @@
       <a href="#" class="navbar-brand">Interactive-Forum</a>
     </div>
     <div class="navbar-collapse collapse">
+
       <ul class="nav navbar-nav navbar-right">
+
         <% if current_user %>
+        <li>
+          <img src="assets/Profile-Pic.jpg"class="img-rounded profile-pic">
+        </li>
         <li>
           <h3 class="sharmila"><%= current_user.name %></h3>
         </li>
+
         <li>
           <%= button_to "Sign out", session_path(:id => current_user.id),:method=> :delete, :class=>"btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%></li>
           <% else %>
@@ -26,11 +32,15 @@
           <li>
 
             <%= button_to "sign in", new_session_path ,:method=> :get, remote: true, :class=>"btn btn-success signup-login-btn", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%>
+
           </li>
+
           <% end %>
+
         </ul>
       </div>
     </div>
+
   </nav>
 
 

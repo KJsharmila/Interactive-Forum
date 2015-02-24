@@ -1,0 +1,65 @@
+<div class="container cotainer-margin">
+  <div class="row">
+    <div class="col-sm-8">
+      <div role="tabpanel" class="forum-section">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="active"><a href="#Forum" aria-controls="home" role="tab" data-toggle="tab">Forum</a></li>
+          <!--    <li role="presentation"><a href="#LatestActivity" aria-controls="profile" role="tab" data-toggle="tab">Latest Activity</a></li>-->
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="Forum">
+            <ul>
+              <!-- <li><a href="#">Announcements </a> </li> -->
+              <li><%= link_to "Announcements",announcements_path%>
+                <li><a href="#">General Discussions </a> </li>
+                <li><a href="#">Domain Specific </a> </li>
+              </ul>
+            </div>
+            <!--    <div role="tabpanel" class="tab-pane" id="LatestActivity">11</div>-->
+          </div>
+
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="latest-threads">
+          <div class="head">LATEST THREADS</div>
+          <div class="content-area">
+            <% @announcements.each do |announcement| %>
+            <div class="threads">
+              <div class="user"><%= announcement.title %></div>
+              <div class="post-body"><%= announcement.title %></div>
+              <div class="date-time"><%= announcement.created_at.strftime("%I:%M %P %b %d") %> </div>
+            </div>
+            <% end %>
+                 <!--  <div class="threads">
+                    <div class="user">User</div>
+                    <div class="post-body">Post body</div>
+                    <div class="date-time">Date,Time </div>
+                  </div>
+                  <div class="threads">
+                    <div class="user">User</div>
+                    <div class="post-body">Post body</div>
+                    <div class="date-time">Date,Time </div>
+                  </div>
+                  <div class="threads">
+                    <div class="user">User</div>
+                    <div class="post-body">Post body</div>
+                    <div class="date-time">Date,Time </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          history.pushState({ page: 1 }, "title 1", "#nbb");
+          window.onhashchange = function (event) {
+            window.location.hash = "nbb";
+          };
+        </script>
+        

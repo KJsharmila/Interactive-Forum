@@ -24,7 +24,7 @@ def create
   if user
     session[:user_id] = user.id
     flash[:success] = "Signed in Successfully"
-    redirect_to forums_path, :success => "Logged in!"
+    redirect_to user_path(user.id), :success => "Logged in!"
   else
     flash[:alert] = "Invalid email or password"
     redirect_to root_path

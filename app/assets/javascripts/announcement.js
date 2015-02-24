@@ -1,35 +1,15 @@
-function UserValidator() {
-
- jQuery.validator.addMethod("pswd_match",function (value,element){
-  return $("#signup_password").val() == $('#password_confirmation').val();
-});
-
- jQuery.validator.addMethod("alpha", function(value, element) {
-  return this.optional(element) || value == value.match(/^[a-zA-Z ]+$/);
-});
-
- $('#register').validate({
+function AnnouncementValidator() {
+ $('#announcement').validate({
   debug: true,
   rules: {
-  "user[name]": {
-    required:true,
-    minlength: 2,
-    alpha:true
-  },
-  "user[email]": {
-     email: true,
+    "announcement[title]": {
+      
      required: true,
-     remote:"/users/check_email"
-  },
-  "user[password]" : {
-    required: true,
-    minlength: 6,
-    maxlength: 10
-  },
-  "user[password_confirmation]": {
-    required:true,
-    equalTo: "#user_password",
-    pswd_match: true
+     maxlength: 30
+   },
+   "announcement[description]" : {
+    required: true
+    
   }
 },
 
@@ -38,24 +18,14 @@ errorElement: "span",
 errorClass: "help-block",
 
 messages: {
- "user[name]":{
+ "announcement[title]": {
   required: "This field is required",
-  alpha:"Should contain only alphabets"
+  maxlength: "Exceeded length"
+  
 },
-"user[email]": {
-  required: "This field is required",
-  email: "Please enter a valid E-Mail address!",
-  remote: "Email has been already taken"
-},
-"user[password]": {
+"announcement[description]": {
   required:"This field is required",
-  minlength:"Enter minimum 6 characters!",
-  maxlength: "Exceeded length!"
-},
-"user[password_confirmation]": {
-  required: "This field is required",
-  equalTo:"Passwords do not match!",
-  pswd_match: "Bingo! It's a match"
+  
 }
 },
 
@@ -96,16 +66,9 @@ invalidHandler: function(event, validator) {
 
       },
       submitHandler: function(form) {
-      
        form.submit();
-      }
-     });
+     }
+   });
 
 }
 
-// Util functions
- 
-function updatePreview(title, description){
-   $("#title_span").html("<b>Title: </b>" + title);
-   $("#description_span").html("<b>Description: </b>"+description);
- }

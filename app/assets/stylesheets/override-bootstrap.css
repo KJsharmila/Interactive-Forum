@@ -20,4 +20,6 @@ body {
 .tab-content > .active {
     border: 1px solid #959595; background-color: #F5F5F5;padding: 20px;height: 400px;overflow-y: auto;
 }
-
+textarea.form-control{
+	resize: none;
+}

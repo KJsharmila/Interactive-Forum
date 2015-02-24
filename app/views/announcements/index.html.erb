@@ -18,19 +18,9 @@
             <div class="topic-name"><%= announcement.title %></div>
             <%= "Created by: " %><%= current_user.name.titleize %><br>
             <%= "Created at: " %><%= announcement.created_at.strftime("%I:%M %P %b %d") %><br>
-            
-          </div>
-          <div></div>
-        </td>
-        <td>
-          <div></div>
-          <div></div>
-        </td>
-        <td>
-          <div></div>
-          <div></div>
-        </td>
-      </tr>
+            </div>
+          </td>
+        </tr>
       <% end %>
     </tbody>
   </table> 

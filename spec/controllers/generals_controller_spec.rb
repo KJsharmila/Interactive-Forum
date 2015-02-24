@@ -14,7 +14,9 @@ let(:general) {FactoryGirl.create(:general)}
       }
     }
     session[:user_id]= user.id
-    post :create, general_params
-    expect(General.count).to eq 1
+    expect {
+    	post :create, {:general => {title: "Mystring",
+    		description: "Mystring"}}
+    		}.to change(General, :count).by(1)
 end
 end

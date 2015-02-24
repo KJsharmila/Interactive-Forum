@@ -12,7 +12,6 @@ RSpec.describe User, :type => :model do
     it { should validate_presence_of :name }
     it { should validate_presence_of :email}
     it { should validate_uniqueness_of :email}
-    it { should validate_presence_of :email }
     it { should allow_value('something@domain.com').for(:email )}
     it { should validate_presence_of :password }
   end
@@ -43,7 +42,6 @@ RSpec.describe User, :type => :model do
 
   it "should validate password lenght" do
     user.password = "wg"
-
     user.valid?
     expect(user.errors[:password].size).to be 1
     expect(user).to be_invalid

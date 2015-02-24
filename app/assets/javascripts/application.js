@@ -17,5 +17,7 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require validate
+//= require announcement
 //= require signin
 //= require_tree .
+

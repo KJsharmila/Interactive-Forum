@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   
   get "users/check_email" =>"users#check_email"
   get "sessions/check_email" =>"sessions#check_email"
+  get "preview" =>"announcements#preview"
   resources :forums
   resources :users
   resources :sessions, except: :show
+
    get 'auth/:provider/callback', to: 'sessions#create'
                   get 'auth/failure', to: redirect('/')
                   get 'sign_out', to: 'sessions#destroy', as: 'sign_out'

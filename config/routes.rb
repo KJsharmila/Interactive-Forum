@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get "users/check_email" =>"users#check_email"
   get "sessions/check_email" =>"sessions#check_email"
   get "preview" =>"announcements#preview"
-  resources :forums
+  get "general" =>"generals#general"
   resources :users
+  resources :generals
   resources :sessions, except: :show
 
    get 'auth/:provider/callback', to: 'sessions#create'

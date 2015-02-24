@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe User, :type => :model do
+RSpec.describe Announcement, :type => :model do
   let(:announcement) {FactoryGirl.create(:announcement)}
   context "Factory settings for users" do
 

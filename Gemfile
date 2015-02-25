@@ -43,6 +43,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-validation-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'capistrano', '~> 3.3.0'
 
 
 # Use unicorn as the app server

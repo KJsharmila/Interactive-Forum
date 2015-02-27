@@ -96,4 +96,21 @@ ul li span.profile-name {
     resize:none;
     
 }
+<<<<<<< Updated upstream
  
+=======
+
+
+ table {
+                width:  100%;
+                border-collapse: collapse;
+            }
+            .scrollingTable {
+                /*                width: 100%;*/
+                overflow-y: auto;
+            }
+            .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+                padding: 28px 8px;
+            }
+
+>>>>>>> Stashed changes

@@ -13,12 +13,26 @@ class GeneralsController < ApplicationController
 		end
 	end
 
+
+  def show
+    @generals = General.all.order("updated_at desc")
+    @general=General.find(params[:id])
+    @visit = Visit.new()
+    @visit.visitor_id = current_user.id
+    @visit.general_id = @general.id
+    @visit.save
+   respond_to do |format|
+      format.js{}
+  end
+end
+
 	def new
 		@general =General.new
 	end
+  def preview1
+  end
 
-	def general
-	end
+
 
 	def general_params
 		params.require(:general).permit(:title,:description)

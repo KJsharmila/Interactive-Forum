@@ -20,5 +20,6 @@
 //= require announcement
 //= require general
 //= require signin
+//= require scroll
 //= require_tree .
 

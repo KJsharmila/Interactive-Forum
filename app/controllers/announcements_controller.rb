@@ -5,8 +5,7 @@ class AnnouncementsController < ApplicationController
 	def index
 		@announcements=Announcement.all
 		@announcements = Announcement.all.order("updated_at desc")
-	end
-	
+end
 
 	def create
 		@announcement=Announcement.new(announcement_params)
@@ -23,6 +22,21 @@ class AnnouncementsController < ApplicationController
 
 	def preview
 	end
+
+    def show
+    @announcements = Announcement.all.order("updated_at desc")
+    @announcement=Announcement.find(params[:id])
+    @visit = Visit.new()
+    @visit.visitor_id = current_user.id
+    @visit.announcement_id = @announcement.id
+    @visit.save
+    @visits = Visit.all.order("updated_at desc")
+    respond_to do |format|
+      format.js{}
+    end
+  end
+
+
 
 	def announcement_params
 		params.require(:announcement).permit(:title,:description)

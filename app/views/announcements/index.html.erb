@@ -2,8 +2,14 @@
   <div class="row">
     <li> <%= button_to "Create Post",new_announcement_path,:method=> :get, remote: true,:class=>"btn btn-warning btn-md pull-right", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%></li>
   </div>
+<<<<<<< Updated upstream
   <div class="forum-table">
     <table class="table table-striped">
+=======
+  <div class="forum-table scrollingTable table_outer">
+                <table id="myTable" class="table table-striped">
+
+>>>>>>> Stashed changes
       <thead>
         <tr>
           <th class="topic">Topics</th>
@@ -15,6 +21,7 @@
         <% @announcements.each do |announcement| %>
         <tr>
           <td>
+<<<<<<< Updated upstream
             <div class="topic-name"><%= announcement.title %></div>
             <%= "Created by: " %><%= current_user.name.titleize %><br>
             <%= "Created at: " %><%= announcement.created_at.strftime("%I:%M %P %b %d") %><br>
@@ -24,6 +31,28 @@
       <% end %>
     </tbody>
   </table> 
+=======
+            <div class="topic-name"><%= link_to announcement.title, announcement_path(announcement), :remote => true %></div>
+
+            <%= "Created by: " %><%=  current_user.name.titleize %><br>
+            <%= "Created at: " %><%= announcement.created_at.strftime("%I:%M %P %b %d") %><br>
+          </td>
+          <td>
+          <% visits = Visit.where(announcement_id: announcement.id).pluck(:id) %>
+          <%="views:"%><%= visits.length %>
+         </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
 </div>
+>>>>>>> Stashed changes
+</div>
+<script>
+$(".reload").click(function(){
+ window.location.reload();
+});
+</script>
 
 

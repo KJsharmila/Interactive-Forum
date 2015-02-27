@@ -30,26 +30,12 @@
           <div class="content-area">
             <% @announcements.each do |announcement| %>
             <div class="threads">
-              <div class="user"><%= announcement.title %></div>
-              <div class="post-body"><%= announcement.title %></div>
+              <div class="user"><%= current_user.name %></div>
+              <div class="post-body"><%= truncate(announcement.description, :ommision => "... Read More", :length => 70) %></div>
               <div class="date-time"><%= announcement.created_at.strftime("%I:%M %P %b %d") %> </div>
             </div>
             <% end %>
-                 <!--  <div class="threads">
-                    <div class="user">User</div>
-                    <div class="post-body">Post body</div>
-                    <div class="date-time">Date,Time </div>
-                  </div>
-                  <div class="threads">
-                    <div class="user">User</div>
-                    <div class="post-body">Post body</div>
-                    <div class="date-time">Date,Time </div>
-                  </div>
-                  <div class="threads">
-                    <div class="user">User</div>
-                    <div class="post-body">Post body</div>
-                    <div class="date-time">Date,Time </div>
-                  </div> -->
+
                 </div>
               </div>
             </div>
@@ -62,4 +48,4 @@
             window.location.hash = "nbb";
           };
         </script>
-        
+

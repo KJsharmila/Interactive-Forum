@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150227062701) do
-
+ActiveRecord::Schema.define(version: 20150227101127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,8 +42,6 @@ ActiveRecord::Schema.define(version: 20150227062701) do
     t.datetime "oauth_expires_at"
   end
 
-<<<<<<< Updated upstream
-=======
   create_table "visits", force: true do |t|
     t.integer  "visitor_id"
     t.integer  "announcement_id"
@@ -56,5 +52,4 @@ ActiveRecord::Schema.define(version: 20150227062701) do
 
   add_index "visits", ["general_id"], name: "index_visits_on_general_id", using: :btree
 
->>>>>>> Stashed changes
 end

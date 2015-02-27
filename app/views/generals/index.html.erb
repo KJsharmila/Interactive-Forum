@@ -2,40 +2,40 @@
   <div class="row">
     <li> <%= button_to "Create Post",new_general_path,:method=> :get, remote: true,:class=>"btn btn-warning btn-md pull-right", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%></li>
   </div>
-   <div class="forum-table scrollingTable table_outer">
-                <table id="myTable" class="table table-striped">
-      <thead>
+  <div class="forum-table table_outer">
+    <table class="table table-striped" >
+         <thead >
         <tr>
           <th class="topic">Topics</th>
           <th class="statistics">Statistics</th>
           <th class="last-post">Last post</th>
         </tr>
       </thead>
-      <tbody>
+      </table>
+  </div>
+  <div class="forum-table scrollingTable table_outer" style="margin-top:-20px">
+
+       <table id="myTable" class="table table-striped">
+
+
+      <tbody >
         <% @generals.each do |general| %>
         <tr>
           <td>
-             <div class="topic-name"><%= link_to general.title, general_path(general), :remote => true %></div>
+            <div class="topic-name"><%= link_to general.title, general_path(general), :remote => true %></div>
             <%= "Created by: " %><%= current_user.name.titleize %><br>
             <%= "Created at: " %><%= general.created_at.strftime("%I:%M %P %b %d") %><br>
-            </td>
-            <td>
-          <% visits = Visit.where(general_id: general.id).pluck(:id) %>
+          </td>
+          <td>
+            <% visits = Visit.where(general_id: general.id).pluck(:id) %>
 
-                                <%="views:"%><%= visits.length %>
-                            </td>
-                            </tr>
-
-
-
-      <% end %>
-    </tbody>
-  </table>
+            <%="views:"%><%= visits.length %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-<script>
-setTimeout(function(){
- window.location.reload();
- }, 400);
-</script>
 
 

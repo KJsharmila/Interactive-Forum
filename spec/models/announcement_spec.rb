@@ -18,7 +18,10 @@ RSpec.describe Announcement, :type => :model do
 
    announcement.title = "ruby on rails"
    expect(announcement).to be_valid
-
-
  end
+
+ context "Associations" do
+  it { should have_many(:visits) }
+  it { should have_many(:latests) }
+end
 end

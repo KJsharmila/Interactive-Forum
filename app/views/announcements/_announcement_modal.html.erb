@@ -6,21 +6,21 @@
     </div>
     <div class="modal-body">
       <%= form_for :announcement, :url => {:action => "create"},remote: true, method: :post, html:{:class =>"form-horizontal", :id=>"announcement" } do |f| %>
-          <div class="form-group">
-             <label for="inputTitle" class="col-sm-3 control-label">Title * :</label>
-             <div class="col-sm-7">
-             <%= f.text_field :title, :class=>"form-control",:placeholder=>"Title"%>
-             </div>
-              <div class="col-sm-2"></div>
-          </div>
-          <div class="form-group">
-            <label for="inputBody" class="col-sm-3 control-label">Body * :</label>
-            <div class="col-sm-7">
+      <div class="form-group">
+       <label for="inputTitle" class="col-sm-3 control-label">Title * :</label>
+       <div class="col-sm-7">
+         <%= f.text_field :title, :class=>"form-control",:placeholder=>"Title"%>
+       </div>
+       <div class="col-sm-2"></div>
+     </div>
+     <div class="form-group">
+      <label for="inputBody" class="col-sm-3 control-label">Body * :</label>
+      <div class="col-sm-7">
 
-             <%= f.text_area :description,:class=>"form-control", :placeholder=>"Description"%>
-           </div>
-           <div class="col-sm-2"></div>
-         </div>
+       <%= f.text_area :description,:class=>"form-control", :placeholder=>"Description"%>
+     </div>
+     <div class="col-sm-2"></div>
+   </div>
 
    <div class="modal-footer">
      <div style="float: left;">
@@ -30,7 +30,7 @@
     <%= f.submit "OK", :class=>"btn btn-primary ok-btn-padding" %>
     <button type="button" class="btn btn-default ok-btn-padding" data-dismiss="modal">Cancel</button>
   </div>
-       </div>
+</div>
 <% end %>
 </div>
 </div>

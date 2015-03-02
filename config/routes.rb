@@ -5,16 +5,17 @@ Rails.application.routes.draw do
   get "sessions/check_email" =>"sessions#check_email"
   resources :announcements
   get "preview" =>"announcements#preview"
+  get "home" =>"announcements#home"
   resources :users
   resources :generals
   get "previews" =>"generals#previews"
   resources :sessions, except: :show
 
-   get 'auth/:provider/callback', to: 'sessions#create'
-                  get 'auth/failure', to: redirect('/')
-                  get 'sign_out', to: 'sessions#destroy', as: 'sign_out'
+   #google path
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'sign_out', to: 'sessions#destroy', as: 'sign_out'
 
-get "home" =>"announcements#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

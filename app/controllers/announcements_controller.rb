@@ -3,20 +3,20 @@ class AnnouncementsController < ApplicationController
   before_filter :require_login
 
 
-	def index
-		@announcements=Announcement.all
-		@announcements = Announcement.all.order("updated_at desc")
+  def index
+    @announcements=Announcement.all
+    @announcements = Announcement.all.order("updated_at desc")
   end
 
   def create
     @announcement=Announcement.new(announcement_params)
     if @announcement.save
       @latest = Latest.new()
-    @latest.announcement_id = @announcement.id
-    @latest.user_id = current_user.id
-    @latest.save
-     redirect_to announcements_path
-   else
+      @latest.announcement_id = @announcement.id
+      @latest.user_id = current_user.id
+      @latest.save
+      redirect_to announcements_path
+    else
      redirect_to '/'
    end
  end

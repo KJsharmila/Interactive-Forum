@@ -13,9 +13,6 @@ function makeTableScroll() {
 }
 }
 
-
-
-
 $(function () {
   makeTableScroll();
   var delta;
@@ -36,5 +33,9 @@ $(function () {
   }
 });
 
-
+function refresh(){
+ $(".reload").click(function(){
+  window.location.reload();
+ });
+}
 

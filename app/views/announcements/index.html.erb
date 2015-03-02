@@ -4,43 +4,36 @@
   </div>
   <div class="forum-table table_outer">
     <table class="table table-striped" >
-         <thead >
-        <tr>
-          <th class="topic">Topics</th>
-          <th class="statistics">Statistics</th>
-          <th class="last-post">Last post</th>
-        </tr>
-      </thead>
-      </table>
-  </div>
-  <div class="forum-table scrollingTable table_outer" style="margin-top:-20px">
+     <thead >
+      <tr>
+        <th class="topic">Topics</th>
+        <th class="statistics">Statistics</th>
+        <th class="last-post">Last post</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<div class="forum-table scrollingTable table_outer" style="margin-top:-20px">
+  <table id="myTable" class="table table-striped">
+    <tbody >
+      <% @announcements.each do |announcement| %>
+      <tr>
+        <td class="topic">
+          <div class="topic-name"><%= link_to announcement.title, announcement_path(announcement), :remote => true %></div>
 
-       <table id="myTable" class="table table-striped">
-
-
-      <tbody >
-
-        <% @announcements.each do |announcement| %>
-        <tr>
-          <td class="topic">
-            <div class="topic-name"><%= link_to announcement.title, announcement_path(announcement), :remote => true %></div>
-
-            <%= "Created by: " %><%=  current_user.name.titleize %><br>
-            <%= "Created at: " %><%= announcement.created_at.strftime("%I:%M %P %b %d") %><br>
-          </td>
-          <td class="statistics">
+          <%= "Created by: " %><%=  current_user.name.titleize %><br>
+          <%= "Created at: " %><%= announcement.created_at.strftime("%I:%M %P %b %d") %><br>
+        </td>
+        <td class="statistics">
           <% visits = Visit.where(announcement_id: announcement.id).pluck(:id) %>
           <%="Views: "%><%= visits.length %>
-         </td>
-         <td class="last-post">
-         </td>
-        </tr>
+        </td>
+        <td class="last-post">
+        </td>
+      </tr>
       <% end %>
     </tbody>
   </table>
-  </div>
-  <p>&nsp;</p>
 </div>
 </div>
-
-
+</div>

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "preview" =>"announcements#preview"
   resources :users
   resources :generals
-  get "preview1" =>"generals#preview1"
+  get "previews" =>"generals#previews"
   resources :sessions, except: :show
 
    get 'auth/:provider/callback', to: 'sessions#create'

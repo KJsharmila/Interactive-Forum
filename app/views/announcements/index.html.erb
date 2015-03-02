@@ -30,7 +30,7 @@
           </td>
           <td class="statistics">
           <% visits = Visit.where(announcement_id: announcement.id).pluck(:id) %>
-          <%="views:"%><%= visits.length %>
+          <%="Views: "%><%= visits.length %>
          </td>
          <td class="last-post">
          </td>

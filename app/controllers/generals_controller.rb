@@ -34,7 +34,7 @@ end
 	def new
 		@general =General.new
 	end
-  def preview1
+  def previews
   end
 
 

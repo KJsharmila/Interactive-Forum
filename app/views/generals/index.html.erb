@@ -29,7 +29,7 @@
           <td>
             <% visits = Visit.where(general_id: general.id).pluck(:id) %>
 
-            <%="views:"%><%= visits.length %>
+            <%="Views: "%><%= visits.length %>
           </td>
         </tr>
         <% end %>

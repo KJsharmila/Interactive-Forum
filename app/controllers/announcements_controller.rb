@@ -4,8 +4,8 @@ class AnnouncementsController < ApplicationController
 
 
   def index
-    @announcements=Announcement.all
     @announcements = Announcement.all.order("updated_at desc")
+    @visits = Visit.all
   end
 
   def create

@@ -25,7 +25,7 @@
           <%= "Created at: " %><%= announcement.created_at.strftime("%I:%M %P %b %d") %><br>
         </td>
         <td class="statistics">
-          <% visits = Visit.where(announcement_id: announcement.id).pluck(:id) %>
+          <% visits = @visits.where(announcement_id: announcement.id).pluck(:id) %>
           <%="Views: "%><%= visits.length %>
         </td>
         <td class="last-post">

@@ -4,6 +4,7 @@ class GeneralsController < ApplicationController
 
   def index
     @generals = General.all.order("updated_at desc")
+    @visits = Visit.all
   end
 
   def create

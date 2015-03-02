@@ -27,7 +27,7 @@
         <%= "Created at: " %><%= general.created_at.strftime("%I:%M %P %b %d") %><br>
       </td>
       <td>
-        <% visits = Visit.where(general_id: general.id).pluck(:id) %>
+      <% visits = @visits.where(general_id: general.id).pluck(:id) %>
 
         <%="Views: "%><%= visits.length %>
       </td>

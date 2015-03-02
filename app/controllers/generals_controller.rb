@@ -1,5 +1,7 @@
 class GeneralsController < ApplicationController
 	skip_before_filter  :verify_authenticity_token
+  before_filter :require_login
+
 	def index
 		@generals = General.all.order("updated_at desc")
 	end
@@ -7,6 +9,9 @@ class GeneralsController < ApplicationController
 	def create
 		@general=General.new(general_params)
 		if @general.save
+      @latest = Latest.new()
+    @latest.general_id = @general.id
+    @latest.save
 			redirect_to generals_path
 		else
 			redirect_to '/'
@@ -31,7 +36,6 @@ end
 	end
   def preview1
   end
-
 
 
 	def general_params

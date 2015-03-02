@@ -1,5 +1,6 @@
 class Announcement < ActiveRecord::Base
-  has_many :visit
+  has_many :visits
+  has_many :latests
 	validates :title,
 	:presence => true,
 	:length => {:maximum => 30}

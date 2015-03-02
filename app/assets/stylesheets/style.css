@@ -92,3 +92,8 @@ ul li span.profile-name {
 .create-btn {
     margin-top: 20px;
 }
+.preview_scroll{
+    resize:none;
+    
+}
+ 

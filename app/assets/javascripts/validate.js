@@ -102,3 +102,14 @@ invalidHandler: function(event, validator) {
      });
 
 }
+
+// Util functions
+ 
+function updatePreview(title, description){
+   $("#title_span").html("<b>Title: </b>" + title);
+   $("#description_span").html("<b>Description: </b>"+description);
+ }
+ function generalPreview(title, description){
+   $("#title_span").html("<b>Title: </b>" + title);
+   $("#description_span").html("<b>Description: </b>"+description);
+ }

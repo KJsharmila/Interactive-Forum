@@ -2,28 +2,38 @@
   <div class="row">
     <li> <%= button_to "Create Post",new_announcement_path,:method=> :get, remote: true,:class=>"btn btn-warning btn-md pull-right", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%></li>
   </div>
-  <div class="forum-table">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th class="topic">Topics</th>
-          <th class="statistics">Statistics</th>
-          <th class="last-post">Last post</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @announcements.each do |announcement| %>
-        <tr>
-          <td>
-            <div class="topic-name"><%= announcement.title %></div>
-            <%= "Created by: " %><%= current_user.name.titleize %><br>
-            <%= "Created at: " %><%= announcement.created_at.strftime("%I:%M %P %b %d") %><br>
-            </div>
-          </td>
-        </tr>
+  <div class="forum-table table_outer">
+    <table class="table table-striped" >
+     <thead >
+      <tr>
+        <th class="topic">Topics</th>
+        <th class="statistics">Statistics</th>
+        <th class="last-post">Last post</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<div class="forum-table scrollingTable table_outer" style="margin-top:-20px">
+  <table id="myTable" class="table table-striped">
+    <tbody >
+      <% @announcements.each do |announcement| %>
+      <tr>
+        <td class="topic">
+          <div class="topic-name"><%= link_to announcement.title, announcement_path(announcement), :remote => true %></div>
+
+          <%= "Created by: " %><%=  current_user.name.titleize %><br>
+          <%= "Created at: " %><%= announcement.created_at.strftime("%I:%M %P %b %d") %><br>
+        </td>
+        <td class="statistics">
+          <% visits = @visits.where(announcement_id: announcement.id).pluck(:id) %>
+          <%="Views: "%><%= visits.length %>
+        </td>
+        <td class="last-post">
+        </td>
+      </tr>
       <% end %>
     </tbody>
-  </table> 
+  </table>
 </div>
-
-
+</div>
+</div>

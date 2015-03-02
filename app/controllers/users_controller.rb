@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :require_login
-  
+
   def check_email
     @user = User.find_by_email(params[:user][:email])
 
@@ -24,18 +24,14 @@ class UsersController < ApplicationController
       @user.save
       @success = true
       session[:user_id] = @user.id
-      redirect_to users_path
+      redirect_to home_path
       flash[:success] = "You have been logged in successfully!"
     else
       @success = false
       redirect_to root_path
       flash[:error] = "Failed to sign up!"
     end
-    
-  end
 
-  def show
-    @announcements = Announcement.all.order("updated_at desc")
   end
 
   private

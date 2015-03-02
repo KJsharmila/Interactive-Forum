@@ -19,8 +19,10 @@ RSpec.describe General, :type => :model do
 
    general.title = "ruby on rails"
    expect(general).to be_valid
-
-
  end
-  
+
+ context "Associations" do
+  it { should have_many(:visits) }
+  it { should have_many(:latests) }
+end
 end

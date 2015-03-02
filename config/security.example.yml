@@ -18,5 +18,5 @@ test:
 
 # Do not keep production secrets in the repository,
 # instead read values from the environment.
-production:
-  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+it:
+  secret_key_base: 3f2febfd219314dd38b3ee77ff2b706be16ca4fbb6412354a0a1f111d82823d9de715806bdf13c2e95340085f05d481a7872d7e78cc8fc2199aae83210b845fa

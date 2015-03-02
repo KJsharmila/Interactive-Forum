@@ -3,9 +3,9 @@ it:
   encoding: unicode
   database: interactive_forum_it
   pool: 10
-  username: interactive_forum_it
-  password: 78c299f8c21a469e5412b7b11c1ee8f2
-  host: d-qwinix-awsw2-internal-apps-1.cgcl3vns0ith.us-west-2.rds.amazonaws.com
+  username: postgres
+  password: password
+  host: localhost
   port: 5432
 
 development:

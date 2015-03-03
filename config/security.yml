@@ -10,13 +10,7 @@
 # Make sure the secrets in this file are kept private
 # if you're sharing your code publicly.
 
-development:
-  secret_key_base: 3f2febfd219314dd38b3ee77ff2b706be16ca4fbb6412354a0a1f111d82823d9de715806bdf13c2e95340085f05d481a7872d7e78cc8fc2199aae83210b845fa
-
-test:
-  secret_key_base: bb056be933672b8e95efabb69d15c7d3b97546f33798cdfa90e8c3a2bafb6e4d757f53a6aca53f7cf6b22ba4978b52011bf36f70ac53df859ee803e3a0302613
-
 # Do not keep production secrets in the repository,
 # instead read values from the environment.
-it:
-  secret_key_base: 3f2febfd219314dd38b3ee77ff2b706be16ca4fbb6412354a0a1f111d82823d9de715806bdf13c2e95340085f05d481a7872d7e78cc8fc2199aae83210b845fa
+production:
+  secret_key_base: abcc47a967f148d846cdc38515058c608b8880eba4faeff4d94485876e22207eeefbb92dd2c86529eecc0f7f0d64ae7145272d440bb1c1bffe65915347e0c6f5

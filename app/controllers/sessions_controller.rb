@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
  def new
   respond_to do |format|
     format.js{}
@@ -6,10 +7,9 @@ class SessionsController < ApplicationController
 end
 def check_email
   @user = User.find_by_email(params[:email])
-  
   respond_to do |format|
     format.json { render :json => @user.present? }
-    
+
   end
 end
 
@@ -24,7 +24,7 @@ def create
   if user
     session[:user_id] = user.id
     flash[:success] = "Signed in Successfully"
-    redirect_to user_path(user.id), :success => "Logged in!"
+    redirect_to home_path, :success => "Logged in!"
   else
     flash[:alert] = "Invalid email or password"
     redirect_to root_path

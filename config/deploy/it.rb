@@ -10,10 +10,10 @@ set :log_level, :debug
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-role :app, %w{deploy@52.10.199.61}
-role :web, %w{deploy@52.10.199.61}
-role :db, %w{deploy@52.10.199.61}
-server '52.10.199.61', roles: %w{:web, :app, :db}, user: 'deploy'
+role :app, %w{deploy@52.11.59.39}
+role :web, %w{deploy@52.11.59.39}
+role :db, %w{deploy@52.11.59.39}
+server '52.11.59.39', roles: %w{:web, :app, :db}, user: 'deploy'
 
 set :ssh_options, {
    #verbose: :debug,

@@ -33,6 +33,7 @@ end
 
 def destroy
   session[:user_id] = nil
-  redirect_to root_path, :success => "Logged out!"
+  redirect_to root_path
+  flash[:alert] = "Logged out!"
 end
 end

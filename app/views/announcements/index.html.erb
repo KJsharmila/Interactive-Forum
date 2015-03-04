@@ -21,7 +21,7 @@
         <td class="topic">
           <div class="topic-name"><%= link_to announcement.title, announcement_path(announcement), :remote => true %></div>
 
-          <%= "Created by: " %><%=  current_user.name.titleize %><br>
+          <%= "Created by: " %><%=  announcement.user.name.titleize %><br>
           <%= "Created at: " %><%= announcement.created_at.strftime("%I:%M %P %b %d") %><br>
         </td>
         <td class="statistics">

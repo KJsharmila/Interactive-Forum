@@ -9,9 +9,11 @@ class GeneralsController < ApplicationController
 
   def create
     @general=General.new(general_params)
+    @general.user_id = current_user.id
     if @general.save
       @latest = Latest.new()
       @latest.general_id = @general.id
+       @latest.user_id = current_user.id
       @latest.save
       redirect_to generals_path
     else

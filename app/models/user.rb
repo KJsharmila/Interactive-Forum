@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :latests
+  has_many :announcements
+  has_many :generals
 
  has_secure_password :validations => false
 

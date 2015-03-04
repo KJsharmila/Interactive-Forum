@@ -10,6 +10,7 @@ class AnnouncementsController < ApplicationController
 
   def create
     @announcement=Announcement.new(announcement_params)
+    @announcement.user_id = current_user.id
     if @announcement.save
       @latest = Latest.new()
       @latest.announcement_id = @announcement.id
@@ -44,6 +45,9 @@ end
 def home
   @latest = Latest.all.order("updated_at desc")
 end
+
+def update
+  end
 
 
 

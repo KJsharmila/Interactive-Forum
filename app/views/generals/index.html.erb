@@ -23,11 +23,11 @@
     <tr>
       <td>
         <div class="topic-name"><%= link_to general.title, general_path(general), :remote => true %></div>
-        <%= "Created by: " %><%= current_user.name.titleize %><br>
+        <%= "Created by: " %><%= general.user.name.titleize %><br>
         <%= "Created at: " %><%= general.created_at.strftime("%I:%M %P %b %d") %><br>
       </td>
       <td>
-      <% visits = @visits.where(general_id: general.id).pluck(:id) %>
+        <% visits = @visits.where(general_id: general.id).pluck(:id) %>
 
         <%="Views: "%><%= visits.length %>
       </td>

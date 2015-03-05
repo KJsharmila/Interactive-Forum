@@ -94,21 +94,26 @@ ul li span.profile-name {
 }
 .preview_scroll{
   resize:none;
-
 }
-
-
-
 table {
   width:  100%;
   border-collapse: collapse;
 }
 .scrollingTable {
-   overflow-y: auto;
+ overflow-y: auto;
 }
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
   padding: 28px 8px;
 }
-
-
-
+.strong {
+  font-weight: bold;
+}
+.comments-margin {
+  margin-bottom: 20px;
+}
+.commenmt-area-height {
+  max-height: 400px;overflow-y:  scroll;margin-bottom: 30px;
+}
+body{
+  color: #ffffff;
+}

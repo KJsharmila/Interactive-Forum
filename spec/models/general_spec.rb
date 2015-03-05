@@ -24,5 +24,7 @@ RSpec.describe General, :type => :model do
  context "Associations" do
   it { should have_many(:visits) }
   it { should have_many(:latests) }
+   it { should have_many(:comments) }
+   it { should belong_to(:user) }
 end
 end

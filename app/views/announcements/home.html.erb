@@ -22,17 +22,22 @@
           <div class="head">LATEST THREADS</div>
           <div class="content-area">
             <% @latest.each do |latest| %>
-            <%= link_to announcement_path(latest), :method => :patch do%>
+            <%if latest.announcement_id? %>
+            <%= link_to edit_announcement_path(latest), :method => :get do%>
             <div class="threads">
-              <div class="user"><%= latest.user.name.titleize %></div>
-              <%if latest.announcement_id? %>
+              <div class="user"><%= latest.announcement.user.name.titleize %></div>
               <div class="post-body"><%= truncate(latest.announcement.description, :ommision => "... Read More", :length => 70) %></div>
               <div class="date-time"><%= latest.announcement.created_at.strftime("%I:%M %P %b %d") %> </div>
-              <% else %>
-              <div class="post-body"><%= truncate(latest.general.description, :ommision => "... Read More", :length => 70) %></div>
-              <div class="date-time"><%= latest.general.created_at.strftime("%I:%M %P %b %d") %> </div>
               <% end %>
             </div>
+            <% else %>
+            <%= link_to edit_general_path(latest), :method => :get do%>
+            <div class="threads">
+              <div class="user"><%= latest.general.user.name.titleize %></div>
+              <div class="post-body"><%= truncate(latest.general.description, :ommision => "... Read More", :length => 70) %></div>
+              <div class="date-time"><%= latest.general.created_at.strftime("%I:%M %P %b %d") %> </div>
+            </div>
+            <% end %>
             <% end %>
             <% end %>
 

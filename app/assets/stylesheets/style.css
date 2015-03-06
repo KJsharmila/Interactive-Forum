@@ -114,10 +114,7 @@ table {
 .commenmt-area-height {
   max-height: 400px;overflow-y:  scroll;margin-bottom: 30px;
 }
-#font_color{
-  color: white;
-}
-.commenmt-area-height{
+.back_color{
   background-color: white;
-  color: black;
 }
+

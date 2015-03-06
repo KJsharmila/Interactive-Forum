@@ -2,6 +2,7 @@
   <div class="row">
     <li> <%= button_to "Create Post",new_general_path,:method=> :get, remote: true,:class=>"btn btn-warning btn-md pull-right", 'data-toggle' => 'modal', 'data-target'=>'#myModal'%></li>
   </div>
+  <% if @generals.present? %>
   <div class="forum-table table_outer">
     <table class="table table-striped" >
      <thead >
@@ -23,11 +24,11 @@
     <tr>
       <td>
         <div class="topic-name"><%= link_to general.title, general_path(general), :remote => true %></div>
-        <%= "Created by: " %><%= current_user.name.titleize %><br>
+        <%= "Created by: " %><%= general.user.name.titleize %><br>
         <%= "Created at: " %><%= general.created_at.strftime("%I:%M %P %b %d") %><br>
       </td>
       <td>
-      <% visits = @visits.where(general_id: general.id).pluck(:id) %>
+        <% visits = @visits.where(general_id: general.id).pluck(:id) %>
 
         <%="Views: "%><%= visits.length %>
       </td>
@@ -36,6 +37,17 @@
   </tbody>
 </table>
 </div>
+<% else %>
+<div class="forum-table table_outer">
+    <table class="table table-striped" >
+     <thead >
+      <tr>
+        <th class="topic">No Records Found</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<% end %>
 </div>
 
 

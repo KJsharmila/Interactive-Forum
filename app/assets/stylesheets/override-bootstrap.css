@@ -23,4 +23,7 @@ body {
 textarea.form-control{
 	resize: none;
 }
+.navbar{
+  margin-bottom: 0px;
+}
 

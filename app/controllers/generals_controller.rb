@@ -9,9 +9,11 @@ class GeneralsController < ApplicationController
 
   def create
     @general=General.new(general_params)
+    @general.user_id = current_user.id
     if @general.save
       @latest = Latest.new()
       @latest.general_id = @general.id
+       @latest.user_id = current_user.id
       @latest.save
       redirect_to generals_path
     else
@@ -38,6 +40,22 @@ end
 def previews
 end
 
+def edit
+  @latest=Latest.find(params[:id])
+  @comments = Comment.all.where(general_id: @latest.general_id)
+  end
+
+  def update
+    @latest=Latest.find(params[:id])
+    comment = Comment.new(params.require(:comment).permit(:comment_text))
+    if comment.comment_text.present?
+    comment.general_id = @latest.general_id
+    comment.user_id = current_user.id
+    comment.save
+  end
+    comments = Comment.all.where(general_id: params[:id].to_i)
+    redirect_to edit_general_path(@latest)
+  end
 
 def general_params
   params.require(:general).permit(:title,:description)

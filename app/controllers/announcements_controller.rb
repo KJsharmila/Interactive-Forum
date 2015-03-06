@@ -10,6 +10,7 @@ class AnnouncementsController < ApplicationController
 
   def create
     @announcement=Announcement.new(announcement_params)
+    @announcement.user_id = current_user.id
     if @announcement.save
       @latest = Latest.new()
       @latest.announcement_id = @announcement.id
@@ -43,6 +44,23 @@ end
 
 def home
   @latest = Latest.all.order("updated_at desc")
+end
+
+def edit
+  @latest=Latest.find(params[:id])
+  @comments = Comment.all.where(announcement_id: @latest.announcement_id)
+end
+
+def update
+  @latest=Latest.find(params[:id])
+  comment = Comment.new(params.require(:comment).permit(:comment_text))
+  if comment.comment_text.present?
+    comment.announcement_id = @latest.announcement_id
+    comment.user_id = current_user.id
+    comment.save
+  end
+  comments = Comment.all.where(announcement_id: params[:id].to_i)
+  redirect_to edit_announcement_path(@latest)
 end
 
 

@@ -1,0 +1,39 @@
+<div class="back_color">
+<div class="container" id="font_color">
+  <div class="">
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="strong text-right">Title :</div>
+      </div>
+      <div class="col-sm-10"><%= @latest.general.title%></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="strong text-right">Description :</div>
+      </div>
+      <div class="col-sm-10">
+        <%= @latest.general.description %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="strong text-right">Created By :</div>
+      </div>
+      <div class="col-sm-10">
+        <%= @latest.user.name %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="strong text-right">Created At :</div>
+      </div>
+      <div class="col-sm-10">
+        <%= @latest.general.created_at.strftime("%I:%M %P %b %d") %>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <%= render partial: 'update'  %>
+</div>
+</div>
+

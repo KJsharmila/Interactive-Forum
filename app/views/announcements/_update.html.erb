@@ -1,0 +1,41 @@
+<div class="container" id="font_color">
+  <div class="comment-area">
+    <div class="row">
+      <div class="col-sm-12 commenmt-area-height backgroun">
+        <% @comments.each do |comment| %>
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="strong text-right">User :</div>
+          </div>
+          <div class="col-sm-10"><%= comment.user.name %></div>
+        </div>
+        <div class="row comments-margin">
+          <div class="col-sm-2">
+            <div class="strong text-right">Comments :</div>
+          </div>
+          <div class="col-sm-10"><%= comment.comment_text %>
+          </div>
+        </div>
+        <hr>
+        <% end %>
+      </div>
+      <%= form_for :comment, url: announcement_path(@latest), :method => :patch, :id => "comment_form" do |f| %>
+      <div class="row">
+        <div class="col-sm-2">
+
+          <div class="strong text-right">Add comments :</div>
+        </div>
+        <div class="col-sm-10">
+          <%= f.text_area :comment_text, :placeholder =>"Add comments here ...", :rows =>"3", :id => "Description3", :class => "form-control" %>
+        </div>
+      </div>
+
+      <div class="comments-buttons">
+        <%= f.submit "OK", :class => "btn btn-primary ok-btn-padding" %>
+        <%= button_tag "Cancel",:class =>"btn btn-default ok-btn-padding",type: :reset %>
+      </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

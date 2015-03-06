@@ -51,4 +51,11 @@ RSpec.describe User, :type => :model do
     expect(user.errors[:password].size).to be 0
     expect(user).to be_valid
   end
+
+context "Associations" do
+  it { should have_many(:announcements) }
+  it { should have_many(:generals) }
+  it { should have_many(:latests) }
+   it { should have_many(:comments) }
+end
 end

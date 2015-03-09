@@ -58,6 +58,7 @@ def update
     comment.announcement_id = @latest.announcement_id
     comment.user_id = current_user.id
     comment.save
+    UserMailer.send_email(@latest,@comment).deliver
   end
   comments = Comment.all.where(announcement_id: params[:id].to_i)
   redirect_to edit_announcement_path(@latest)

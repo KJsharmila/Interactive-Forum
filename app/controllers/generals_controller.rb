@@ -52,6 +52,7 @@ def edit
     comment.general_id = @latest.general_id
     comment.user_id = current_user.id
     comment.save
+     UserMailer.send_email(@latest,@comment).deliver
   end
     comments = Comment.all.where(general_id: params[:id].to_i)
     redirect_to edit_general_path(@latest)

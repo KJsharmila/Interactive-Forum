@@ -71,7 +71,7 @@ Interactive::Application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
-  config.i18n.fallbacks = true
+config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
@@ -83,5 +83,22 @@ Interactive::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.default_url_options = { :host => 'it.interactive-forum.qwinixtech.com' }
+  Rails.application.configure do
+    config.action_mailer.asset_host = 'http://website.com/'
+    config.action_mailer.default_url_options = { :host => 'website.com' }
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default :charset => "utf-8"
+
+    config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address => "smtp.sendgrid.net",
+      :port => 587,
+      :domain => "sendgrid.com",
+      :authentication => :login,
+      :user_name =>"KJsharmila",
+      :password => "s9972185731"
+    }
+  end
 
 end

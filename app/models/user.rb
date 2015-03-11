@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
  :length => {:minimum => 6},
  :unless => proc{|u| u.provider.present?}
 
+ mount_uploader :image, ImageUploader
 
  def self.authenticate(email, password)
   user = find_by_email(email)

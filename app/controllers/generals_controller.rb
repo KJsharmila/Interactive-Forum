@@ -47,11 +47,12 @@ def edit
 
   def update
     @latest=Latest.find(params[:id])
-    comment = Comment.new(params.require(:comment).permit(:comment_text))
-    if comment.comment_text.present?
-    comment.general_id = @latest.general_id
-    comment.user_id = current_user.id
-    comment.save
+    @comment = Comment.new(params.require(:comment).permit(:comment_text))
+    if @comment.comment_text.present?
+    @comment.general_id = @latest.general_id
+    @comment.user_id = current_user.id
+    @comment.save
+     UserMailer.send_email(@latest,@comment).deliver
   end
     comments = Comment.all.where(general_id: params[:id].to_i)
     redirect_to edit_general_path(@latest)

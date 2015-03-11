@@ -46,6 +46,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 # gem 'capistrano', '~> 3.3.0'
 
+gem 'carrierwave'
 
 # Use unicorn as the app server
 # gem 'unicorn'

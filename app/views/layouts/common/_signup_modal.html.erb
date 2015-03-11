@@ -5,7 +5,7 @@
       <h4 class="modal-title">Sign Up</h4>
     </div>
     <div class="modal-body">
-      <%= form_for @user, remote: true, method: :post, authenticity_token: true, html:{:class =>"form-horizontal", :id=>"register" } do |f| %>
+      <%= form_for @user, remote: true, method: :post, authenticity_token: true, html:{:class =>"form-horizontal", :id=>"register", :multipart => true } do |f| %>
       <div class="form-group">
         <label for="Name" class="col-sm-3 control-label">Name * </label>
         <div class="col-sm-7">
@@ -33,6 +33,18 @@
           <%= f.password_field :password_confirmation, :class=>"form-control", :placeholder=>"confirmation password"%>
         </div>
       </div>
+       <div class="form-group">
+            <label for="inputstatus" class="col-sm-3 control-label">Profile Pic</label>
+            <div class="col-sm-3">
+              <div class="event-title">
+                <%= image_tag "Profile-Pic.jpg", :alt=>"image", :class=>"img-thumbnail", :id => "preview" %>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <%= f.file_field :image, :id=>"exampleInputFile" %>
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
       <div class="modal-footer">
        <%= f.submit "OK", :class=>"btn btn-primary ok-btn-padding" %>
        <button type="button" class="btn btn-default ok-btn-padding" data-dismiss="modal">Cancel</button>

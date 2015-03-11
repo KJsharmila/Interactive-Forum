@@ -1,5 +1,5 @@
-function UserValidator() {
 
+function UserValidator() {
  jQuery.validator.addMethod("pswd_match",function (value,element){
   return $("#signup_password").val() == $('#password_confirmation').val();
 });
@@ -96,15 +96,23 @@ invalidHandler: function(event, validator) {
 
       },
       submitHandler: function(form) {
-      
+
        form.submit();
       }
      });
-
+setTimeout(function(){ $("#exampleInputFile").change(function(){
+  if (this.files && this.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#preview').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(this.files[0]);
+  }
+}); }, 400);
 }
 
 // Util functions
- 
+
 function updatePreview(title, description){
    $("#title_span").html("<b>Title: </b>" + title);
    $("#description_span").html("<b>Description: </b>"+description);

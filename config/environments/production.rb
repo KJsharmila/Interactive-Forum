@@ -96,7 +96,7 @@ config.i18n.fallbacks = true
       :port => 587,
       :domain => "sendgrid.com",
       :authentication => :login,
-      :user_name =>"KJsharmila",
+      :user_name =>"sharmilakj",
       :password => "s9972185731"
     }
   end

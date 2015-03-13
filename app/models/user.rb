@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
  validates :password, :presence => true,
  :length => {:minimum => 6},
- :unless => proc{|u| u.provider.present?}
+ :unless => proc{|u| u.provider.present?}, :if => '!password.nil?'
 
  mount_uploader :image, ImageUploader
 

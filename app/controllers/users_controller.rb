@@ -23,9 +23,9 @@ class UsersController < ApplicationController
     if @user.valid? && @user.errors.blank?
       @user.save
       @success = true
-      session[:user_id] = @user.id
-      redirect_to home_path
-      flash[:success] = "You have been logged in successfully!"
+      UserMailer.confirm_mail(@user).deliver
+      redirect_to root_path
+      flash[:success] = "Please check your email to complete registration!"
     else
       @success = false
       redirect_to root_path

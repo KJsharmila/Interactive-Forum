@@ -1,0 +1,10 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <h1>Hi, <%= @user.name %>!</h1>
+    <p>Please click on <%= link_to "Confirmation", confirmation_session_url(@user) %> to complete your registration.</p>
+  </body>
+</html>

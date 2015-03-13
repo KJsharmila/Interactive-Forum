@@ -21,15 +21,23 @@ def create
   else
     user = User.authenticate(params[:email], params[:password])
   end
-  if user
+  if user && user.email_confirmation == true
     session[:user_id] = user.id
     flash[:success] = "Signed in Successfully"
     redirect_to home_path, :success => "Logged in!"
   else
-    flash[:alert] = "Invalid email or password"
+    flash[:alert] = "Email ID not confirmed, Please check your email"
     redirect_to root_path
   end
 end
+
+def confirmation
+    @user = User.find(params[:id])
+    session[:user_id] = @user.id
+    @user.update(email_confirmation: true)
+    redirect_to home_path
+    flash[:success] = "Thank you for your email confirmation"
+  end
 
 def destroy
   session[:user_id] = nil

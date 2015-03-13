@@ -7,4 +7,9 @@ class UserMailer < ActionMailer::Base
     mail(:to=> @latest.user.email, :subject=>"Sample mail!!")
   end
 
+  def confirm_mail(user)
+    @user = user
+    mail(:to=> @user.email, :subject=>"Email Confirmation")
+  end
+
 end
